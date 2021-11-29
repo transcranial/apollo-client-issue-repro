@@ -115,7 +115,9 @@ function App() {
   const {
     loading,
     data,
-  } = useQuery(ALL_PEOPLE);
+    variables,
+  } = useQuery(ALL_PEOPLE, { variables: { name } });
+  console.log(name, variables.name);
 
   const [addPerson] = useMutation(ADD_PERSON, {
     update: (cache, { data: { addPerson: addPersonData } }) => {
